@@ -23,6 +23,19 @@ start :-
     write('you realize that your bladder is quite full.'), nl,
     write('GOTO (lost_in_school)').
 
+/* end of game */
+
+// find_bathroom
+success :-
+        nl,
+        write('You can’t believe why you didn’t think of asking anyone earlier. You make it to the bathroom and carry on with your hackathon. Quest: completed. Please enter the halt command.'),
+        nl.
+
+// peed_pants
+fail :-
+        nl,
+        write('You peed your pants. Quest: failed. Quest: failed. Please enter the halt command.'),
+        nl.
 
 /* instructions */
 
