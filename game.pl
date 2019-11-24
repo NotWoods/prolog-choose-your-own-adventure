@@ -1,9 +1,23 @@
+
 /* beginning instructions */
 start :-
     write('You are at a prolog conference and have been logical for 7 hours straight.'), nl,
     write('Taking advantage of all of the free soda and coffee supplied at the event,'), nl,
     write('you realize that your bladder is quite full.'), nl,
     write('GOTO (lost_in_school)').
+
+
+/* instructions */
+
+instructions :-
+        nl,
+        write('Enter commands using standard Prolog syntax.'), nl,
+        write('Available commands are:'), nl,
+        write('start.                        -- to start the game.'), nl,
+        write('1.  2.  3                    -- to choose the path.'), nl,
+        write('instructions.              -- to see this message again.'), nl,
+        write('halt.                          -- to end the game and quit.'), nl,
+        nl.
 
 /* describes a location */
 
@@ -109,53 +123,59 @@ describe(find_bathroom) :-
     write('You make it to the bathroom and carry on with your hackathon.'), nl,
     write('Quest: completed.').
 
-/* Pathways */
+path(exit_hole, 1, find_bathroom) :-
+    
+    nl,
+    success.
 
+
+/* Pathways */
 goto(start, lost_in_school).
 goto(kicks_bladder, peed_pants).
 goto(need_to_go, forgot_key).
+
 end(peed_pants).
 end(find_bathroom).
 
-path(lost_in_school, wander, friend).
-path(lost_in_school, bush, people_walking_by).
-path(lost_in_school, directory, janitor_closet).
+path(lost_in_school, 1, friend).
+path(lost_in_school, 2, people_walking_by).
+path(lost_in_school, 3, janitor_closet).
 
-path(friend, listen, drones_on).
-path(friend, avoid, kicks_bladder).
+path(friend, 1, drones_on).
+path(friend, 2, kicks_bladder).
 
-path(drones_on, say_go, need_to_go).
-path(drones_on, cut_off, kicks_bladder).
+path(drones_on, 1, need_to_go).
+path(drones_on, 2, kicks_bladder).
 
-path(forgot_key, find, public_bathroom).
-path(forgot_key, call, peed_pants).
+path(forgot_key, 1, public_bathroom).
+path(forgot_key, 2, peed_pants).
 
-path(public_bathroom, wait, wait_in_line).
-path(public_bathroom, bush, people_walking_by).
+path(public_bathroom, 1, wait_in_line).
+path(public_bathroom, 2, people_walking_by).
 
-path(wait_in_line, demand, demand_pee).
-path(wait_in_line, bush, people_walking_by).
+path(wait_in_line, 1, demand_pee).
+path(wait_in_line, 2, people_walking_by).
 
-path(demand_pee, defy, peed_pants).
+path(demand_pee, 1, peed_pants).
 
-path(people_walking_by, go_anyway, campus_security).
-path(people_walking_by, wait, need_to_go).
+path(people_walking_by, 1, campus_security).
+path(people_walking_by, 2, need_to_go).
 
-path(campus_security, run_home, forgot_key).
-path(campus_security, run_school, lost_in_school).
+path(campus_security, 1, forgot_key).
+path(campus_security, 2, lost_in_school).
 
-path(janitor_closet, leave, locked).
-path(janitor_closet, approach, flying_toilets).
+path(janitor_closet, 1, locked).
+path(janitor_closet, 2, flying_toilets).
 
-path(locked, cry, peed_pants).
-path(locked, enter, flying_toilets).
+path(locked, 1, peed_pants).
+path(locked, 2, flying_toilets).
 
-path(flying_toilets, grab, toilet_ride).
-path(flying_toilets, watch, exit_hole).
+path(flying_toilets, 1, toilet_ride).
+path(flying_toilets, 2, exit_hole).
 
-path(toilet_ride, pry, exit_hole).
-path(toilet_ride, let_go, exit_hole).
+path(toilet_ride, 1, exit_hole).
+path(toilet_ride, 2, exit_hole).
 
-path(exit_hole, ask, find_bathroom).
-path(exit_hole, run_home, friend).
-path(exit_hole, bush, people_walking_by).
+path(exit_hole, 1, find_bathroom).
+path(exit_hole, 2, friend).
+path(exit_hole, 3, people_walking_by).
