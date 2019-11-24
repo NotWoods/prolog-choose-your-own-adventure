@@ -1,3 +1,20 @@
+/*
+CPSC 312 Project 2 - Choose Your Own Adventure
+Tiger Oakes 
+Meng Hsun "Daphne" Liu
+
+*/ 
+
+/* current state of player */ 
+current_state(start).
+
+/* What players type in order to move*/
+1 :- move(1).
+
+2 :- move(2).
+
+3 :- move(3).
+
 
 /* beginning instructions */
 start :-
@@ -130,6 +147,25 @@ path(exit_hole, 1, find_bathroom) :-
 
 
 /* Pathways */
+move(Choice) :-
+    current_state(Old_State),
+    path(Old_State, Choice, NewState),
+    describe(NewState), !.
+
+move(Choice) :-
+    current_state(Old_State),
+    path(Old_State, Choice, NewState),
+
+move(Choice) :-
+    current_state(Old_State),
+    path(Old_State, Choice, NewState),
+
+goto(Old_State, NewState) :- 
+    current_state(Old_State),
+    describe(NewState), !.
+
+
+
 goto(start, lost_in_school).
 goto(kicks_bladder, peed_pants).
 goto(need_to_go, forgot_key).
