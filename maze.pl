@@ -28,14 +28,10 @@ connected(driveway, s, entrance).
 
 connected(entrance, n, driveway) :-
     located_at(laptop, my_hand),
-    write('Yay! You got your laptop! Time to hit the road again!'), 
-    nl,
+    write('Yay! You got your laptop! Time to hit the road again!'), nl,
     finish, !.
 connected(entrance, n, driveway) :-
-    \+ located_at(laptop, my_hand), 
-    write('Ummm... you forgot the laptop again! Do not leave yet.'), 
-    nl,
-    fail.
+    \+ located_at(laptop, my_hand), write('Ummm... you forgot the laptop again! Do not leave yet.'), nl, fail.
 connected(entrance, s, entryway). %added if had laptop, would still print after winning
 
 connected(entryway, n, entrance) :- located_at(shoes, my_feet).
