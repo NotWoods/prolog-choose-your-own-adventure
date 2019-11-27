@@ -38,6 +38,7 @@ instructions :-
     write('start.         -- to start the game.'), nl,
     write('a.  b.  c      -- to choose a path.'), nl,
     write('instructions.  -- to see this message again.'), nl,
+    write('look.          -- to check out the current area.'), nl,
     write('halt.          -- to end the game and quit.'), nl,
     nl.
 
